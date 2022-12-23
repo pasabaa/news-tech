@@ -4,13 +4,12 @@ import uuid from 'react-uuid';
 
 function App() {
 
-  const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
   const [news, setNews] = useState([]);
   const descriptionBlog = 'On my blog, I will provide daily news on a wide range of topics, such as new product releases, software and operating system updates, advances in artificial intelligence and machine learning, the latest trends in mobile and web development, and updates on cybersecurity and privacy issues. This news will be available through a variety of sources, such as online news websites, technology blogs and social networking platforms.'
 
   const getNews = () => {
 
-    axios.get(`https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${API_KEY}`)
+    axios.get(`https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${import.meta.env.VITE_NEWS_API_KEY}`)
     .then(res => setNews(res.data.articles))
     .catch(error => console.log(error))
 
